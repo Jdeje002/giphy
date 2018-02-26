@@ -4,8 +4,6 @@
 
 $(document).ready(function () {
 
-  // array of animals 
-
 
 
   //api = 51F88Xv6lOpuuIQeThwTlrtlgmsUSbmY
@@ -38,30 +36,31 @@ $(document).ready(function () {
   })
 
   // buttons
+  //arr of animals
   var animals = ["ant", "dog", "cat", "hamster", "shark"]
+  renderButtons();
   function renderButtons() {
 
-    // Deleting the buttons prior to adding new movies
-    // (this is necessary otherwise you will have repeat buttons)
-    $("animalBtn").empty();
+    $("#animalBtn").empty();
 
-    // Looping through the array of movies
+    // Looping through the array of animals
     for (var i = 0; i < animals.length; i++) {
-      var a = $("<button>");
+      var a = $("<button id = 'animal_Button'><br>");
 
-      a.addClass("animals");
+      a.addClass("btn animals");
 
       a.attr("data-name", animals[i]);
 
       a.text(animals[i]);
 
       $("#animalBtn").append(a);
+      
+
     }
   }
 
   // // This function handles events where one button is clicked
-  // $("#animalButton").on("click", function(event) {
-  //   event.preventDefault();
+  date-name.in
 
   //   // This line grabs the input from the textbox
   //   // The movie from the textbox is then added to our array
@@ -76,6 +75,6 @@ $(document).ready(function () {
   // $(document).on("click", ".animal", displayGif);
 
   // Calling the renderButtons function to display the intial buttons
-  renderButtons();
+ 
 
 })
