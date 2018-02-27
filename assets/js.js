@@ -10,6 +10,7 @@ $(document).ready(function () {
 
   $("#submit").on("click", function displayGif() {
     event.preventDefault()
+
     $("#showHere").empty()
 
     var animals = $("#searchAnimal").val();
@@ -38,6 +39,7 @@ $(document).ready(function () {
   // buttons
   //arr of animals
   var animals = ["ant", "dog", "cat", "hamster", "shark"]
+
   renderButtons();
   function renderButtons() {
 
@@ -54,27 +56,18 @@ $(document).ready(function () {
       a.text(animals[i]);
 
       $("#animalBtn").append(a);
-      
-
     }
+    
+    $("#submit").on("click", function () {
+      event.preventDefault()
+      var animalSearch = $("#searchAnimal").val().trim();
+
+      animals.push(animalSearch);
+
+      renderButtons();
+    })
+    $('.animals').on('click', function(){
+      //
+    })
   }
-
-  // // This function handles events where one button is clicked
-  date-name.in
-
-  //   // This line grabs the input from the textbox
-  //   // The movie from the textbox is then added to our array
-  //   animals.push(animals);
-
-  //   // Calling renderButtons which handles the processing of our movie array
-  //   renderButtons();
-
-  // });
-
-  // // Generic function for displaying the movieInfo
-  // $(document).on("click", ".animal", displayGif);
-
-  // Calling the renderButtons function to display the intial buttons
- 
-
 })
