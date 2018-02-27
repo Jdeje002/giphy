@@ -8,7 +8,7 @@ $(document).ready(function () {
 
   //api = 51F88Xv6lOpuuIQeThwTlrtlgmsUSbmY
 
-  $("#submit").on("click", function displayGif() {
+  function displayGif() {
     event.preventDefault()
 
     $("#showHere").empty()
@@ -25,6 +25,7 @@ $(document).ready(function () {
     })
       .then(function (response) {
         console.log(response)
+
         for (var i = 0; i < response.data.length; i++) {
           var gif = $("<img src='" + response.data[i].images.fixed_height.url + "'>")
           $("#showHere").append(gif)
@@ -34,13 +35,13 @@ $(document).ready(function () {
       .catch(function (err) {
         console.log(err)
       })
-  })
+  }
 
   // buttons
   //arr of animals
   var animals = ["ant", "dog", "cat", "hamster", "shark"]
 
-  renderButtons();
+  
   function renderButtons() {
 
     $("#animalBtn").empty();
@@ -49,25 +50,28 @@ $(document).ready(function () {
     for (var i = 0; i < animals.length; i++) {
       var a = $("<button id = 'animal_Button'><br>");
 
-      a.addClass("btn animals");
+      a.addClass("btn-animals");
 
       a.attr("data-name", animals[i]);
+      
+      a.val(animals[i])
 
       a.text(animals[i]);
 
       $("#animalBtn").append(a);
     }
     
-    $("#submit").on("click", function () {
+    $("#submit").on("click", function (event) {
       event.preventDefault()
       var animalSearch = $("#searchAnimal").val().trim();
-
       animals.push(animalSearch);
-
       renderButtons();
+      displayGif
     })
-    $('.animals').on('click', function(){
-      //
-    })
+    $("#submit").on("click",displayGif)
+
+    $(".btn-animals").on('click',displayGif)
+    
   }
+  renderButtons();
 })
