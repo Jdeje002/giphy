@@ -34,7 +34,7 @@ $(document).ready(function () {
           var rating = response.data[i].rating
           console.log(rating)
           $("#showHere").append(gif)
-          $("#showHere").append(rating)
+          $("#showHere").append("Rating: "+ rating+"")
           
           
           gif.attr("data-state","still")
