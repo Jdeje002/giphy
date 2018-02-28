@@ -27,10 +27,27 @@ $(document).ready(function () {
         console.log(response)
 
         for (var i = 0; i < response.data.length; i++) {
-          var gif = $("<img src='" + response.data[i].images.fixed_height.url + "'>")
+          var gif = $("<img src='" + response.data[i].images.fixed_height_still.url + "'>")
+          gif.attr("data-still",response.data[i].images.fixed_height_still.url)
+          gif.attr("data-animate",response.data[i].images.fixed_height.url)
+          gif.addClass("gif")
           $("#showHere").append(gif)
+          gif.attr("data-state","still")
           
         }
+        $(".gif").on("click", function() {
+
+          var state = $(this).attr("data-state")
+          console.log(state)
+          if (state === "still") {
+            $(this).attr("src", $(this).attr("data-animate"))
+            $(this).attr("data-state", "animate")
+          }
+          else {
+            $(this).attr("src", $(this).attr("data-still"))
+            $(this).attr("data-state", "still")
+          }
+        })
 
       })
       .catch(function (err) {
