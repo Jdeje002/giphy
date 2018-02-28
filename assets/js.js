@@ -8,12 +8,12 @@ $(document).ready(function () {
 
   //api = 51F88Xv6lOpuuIQeThwTlrtlgmsUSbmY
 
-  function displayGif() {
+  function displayGif(animals) {
     event.preventDefault()
 
     $("#showHere").empty()
 
-    var animals = $("#searchAnimal").val();
+    // var animals = $("#searchAnimal").val();
 
 
     var queryURL = "http://api.giphy.com/v1/gifs/search?apikey=51F88Xv6lOpuuIQeThwTlrtlgmsUSbmY&q=" + animals + "&limit=10";
@@ -29,6 +29,7 @@ $(document).ready(function () {
         for (var i = 0; i < response.data.length; i++) {
           var gif = $("<img src='" + response.data[i].images.fixed_height.url + "'>")
           $("#showHere").append(gif)
+          
         }
 
       })
@@ -48,9 +49,10 @@ $(document).ready(function () {
 
     // Looping through the array of animals
     for (var i = 0; i < animals.length; i++) {
-      var a = $("<button id = 'animal_Button'><br>");
+      var a = $("<button>");
 
       a.addClass("btn-animals");
+      a.addClass("btn btn-success center-block");
 
       a.attr("data-name", animals[i]);
       
@@ -59,19 +61,23 @@ $(document).ready(function () {
       a.text(animals[i]);
 
       $("#animalBtn").append(a);
-    }
+    }}
     
-    $("#submit").on("click", function (event) {
+    $("#submit").on("click", function displayGif() {
       event.preventDefault()
       var animalSearch = $("#searchAnimal").val().trim();
       animals.push(animalSearch);
       renderButtons();
-      displayGif
     })
-    $("#submit").on("click",displayGif)
 
-    $(".btn-animals").on('click',displayGif)
+   console.log(animals)
+
+    $(document).on('click',".btn-animals",function(event){
+      
+      event.preventDefault()
+      displayGif($(this).val())
+    })
     
-  }
+  
   renderButtons();
 })
