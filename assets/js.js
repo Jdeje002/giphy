@@ -31,7 +31,12 @@ $(document).ready(function () {
           gif.attr("data-still",response.data[i].images.fixed_height_still.url)
           gif.attr("data-animate",response.data[i].images.fixed_height.url)
           gif.addClass("gif")
+          var rating = response.data[i].rating
+          console.log(rating)
           $("#showHere").append(gif)
+          $("#showHere").append(rating)
+          
+          
           gif.attr("data-state","still")
           
         }
