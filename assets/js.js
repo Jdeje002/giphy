@@ -52,7 +52,7 @@ $(document).ready(function () {
       var a = $("<button>");
 
       a.addClass("btn-animals");
-      a.addClass("btn btn-success center-block");
+      a.addClass("btn btn-primary center-block");
 
       a.attr("data-name", animals[i]);
       

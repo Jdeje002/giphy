@@ -2,3 +2,17 @@
     margin: 2px;
     
 }
+body{
+    background-color: gray;
+}
+.btn-animals{
+    background-color: cornflowerblue
+}
+img{
+    margin:10px;
+    max-height: 200px;
+    max-width: 250px;
+    align-self: auto;
+    border-style: solid;
+    border-color: whitesmoke;
+}
