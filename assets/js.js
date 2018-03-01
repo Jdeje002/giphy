@@ -30,11 +30,13 @@ $(document).ready(function () {
           var gif = $("<img src='" + response.data[i].images.fixed_height_still.url + "'>")
           gif.attr("data-still",response.data[i].images.fixed_height_still.url)
           gif.attr("data-animate",response.data[i].images.fixed_height.url)
+          $("#showHere").attr("title","Rating: "+ rating+"")
           gif.addClass("gif")
           var rating = response.data[i].rating
           console.log(rating)
           $("#showHere").append(gif)
-          $("#showHere").append("Rating: "+ rating+"")
+          $("#showHere").append("Rating: "+ rating)
+          
           
           
           gif.attr("data-state","still")
