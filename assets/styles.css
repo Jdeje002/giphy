@@ -16,6 +16,7 @@ img{
     align-self: auto;
     border-style: solid;
     border-color: whitesmoke;
+    border-bottom-width: 50px;
 }
 #animalForm{
     float: right;
