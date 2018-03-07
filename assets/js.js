@@ -37,7 +37,7 @@ $(document).ready(function () {
           $("#showHere").append(gif)
           $("#showHere").append("Rating: "+ rating)
           
-          
+        
           
           gif.attr("data-state","still")
           
