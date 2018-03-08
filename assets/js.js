@@ -16,7 +16,7 @@ $(document).ready(function () {
     // var animals = $("#searchAnimal").val();
 
 
-    var queryURL = "http://api.giphy.com/v1/gifs/search?apikey=51F88Xv6lOpuuIQeThwTlrtlgmsUSbmY&q=" + animals + "&limit=10";
+    var queryURL = "https://api.giphy.com/v1/gifs/search?apikey=51F88Xv6lOpuuIQeThwTlrtlgmsUSbmY&q=" + animals + "&limit=10";
 
     console.log(animals)
     $.ajax({
